@@ -8,9 +8,6 @@ app = FastAPI()
 app.add_middleware(GZipMiddleware, minimum_size=8000)
 
 app.mount("/css", StaticFiles(directory="templates/css"), name="css")
-app.mount("/js", StaticFiles(directory="templates/js"), name="js")
-app.mount("/img", StaticFiles(directory="templates/img"), name="img")
-app.mount("/fonts", StaticFiles(directory="templates/fonts"), name="fonts")
 app.mount("/Build", StaticFiles(directory="templates/Build"), name="unity_build")
 app.mount("/TemplateData", StaticFiles(directory="templates/TemplateData"), name="unity_template")
 #шаблоны
