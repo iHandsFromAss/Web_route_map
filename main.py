@@ -5,14 +5,12 @@ from fastapi.templating import Jinja2Templates
 from fastapi.middleware.gzip import GZipMiddleware
 
 app = FastAPI()
-app.add_middleware(GZipMiddleware, minimum_size=8000)
 
-app.mount("/css", StaticFiles(directory="templates/css"), name="css")
-app.mount("/js", StaticFiles(directory="templates/js"), name="js")
-app.mount("/img", StaticFiles(directory="templates/img"), name="img")
-app.mount("/fonts", StaticFiles(directory="templates/fonts"), name="fonts")
-app.mount("/Build", StaticFiles(directory="templates/Build"), name="unity_build")
-app.mount("/TemplateData", StaticFiles(directory="templates/TemplateData"), name="unity_template")
+app.mount("/css", StaticFiles(directory="templates/css/"), name="css")
+app.mount("/js", StaticFiles(directory="templates/Build/"), name="js")
+app.mount("/img", StaticFiles(directory="templates/TemplateData/"), name="img")
+app.mount("/fonts", StaticFiles(directory="templates/TemplateData/"), name="fonts")
+app.mount("/Build", StaticFiles(directory="templates/Build/"), name="unity_build")
 #шаблоны
 templates_templates = Jinja2Templates(directory="templates")
 
